@@ -1,0 +1,29 @@
+nav{
+    width: 90vw;
+    background-color: purple;
+    height: 10vh;
+    display: flex;
+}
+nav>div{
+    background-color: aqua;
+    width: 10vw;
+    height: 5vh;
+    margin: auto 2vw;
+
+}
+main{
+    width: 90vw;
+    height: 70vh;
+    display: flex;
+}
+main>div:first-child{
+    background-color: yellow;
+    height: auto;
+    flex: 5;
+    
+}
+main>div:last-child{
+    background-color: green;
+    height: auto;
+    flex: 2;
+}
