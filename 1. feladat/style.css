@@ -1,0 +1,39 @@
+div{
+    width: 100%;
+    height: 300px;
+    display: flex;
+}
+div>div:first-child{
+    background-color: green;
+    flex: 1;
+}
+div>div:nth-child(2){
+    background-color: yellow;
+    flex: 1
+}
+div>div:last-child{
+    background-color: purple;
+    flex: 1
+}
+
+/* 2. feladat */
+div:nth-of-type(2)>div:nth-child(2){
+    flex: 2;
+}
+
+/* 3. feladat */
+div:nth-of-type(3){
+    flex-direction: row-reverse;
+}
+div:nth-of-type(3)>div:nth-child(2){
+    flex: 2;
+}
+
+/* 4. feladat */
+div:nth-of-type(4){
+    flex-direction: column;
+}
+div:nth-of-type(4)>div:nth-child(2){
+    flex: 2;
+    order: 3;
+}
