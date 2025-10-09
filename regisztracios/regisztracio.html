@@ -1,93 +1,77 @@
 <!DOCTYPE html>
 <html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Regisztráció</title>
     <style>
-        main{
-            text-align: center;
-        }
-        br{
-            margin-bottom: 1vh;
-        }
+      main {
+        text-align: center;
+      }
+      br {
+        margin-bottom: 1vh;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-    <h1>Regisztráció</h1>
+      <h1>Regisztráció</h1>
 
-        <div id="regisztraciosResz">
-            <label for="email">Email: </label>
-            <input type="email" id="email" placeholder="pelda@vasvari.org">
-            <br>
-            <label for="jelszo">Jelszó: </label>
-            <input type="password" id="jelszo">
-            <br>
-            <label for="jelszoUjra">Jelszó megerősítése: </label>
-            <input type="password" id="jelszoUjra">
-            <br>
-            <button id="regisztracioGomb">Regisztrálok</button>
+      <div id="regisztraciosResz">
+        <label for="email">Email: </label>
+        <input type="email" id="email" placeholder="pelda@vasvari.org" />
+        <br />
+        <label for="jelszo">Jelszó: </label>
+        <input type="password" id="jelszo" />
+        <br />
+        <label for="jelszoUjra">Jelszó megerősítése: </label>
+        <input type="password" id="jelszoUjra" />
+        <br />
+        <button id="regisztracioGomb">Regisztrálok</button>
 
-            <h4 id="error"></h4>
-        </div>
+        <h4 id="error"></h4>
+      </div>
 
-
-        <h3 id="sikeres">Sikeres regisztráció!</h3>
-        
+      <h3 id="sikeres">Sikeres regisztráció!</h3>
     </main>
 
     <script>
-        const regisztracioGomb = document.getElementById("regisztracioGomb")
-        const emailMezo = document.getElementById("email")
-        const jelszoMezo = document.getElementById("jelszo")
-        const jelszoUjraMezo = document.getElementById("jelszoUjra")
-        const errorUzenet = document.getElementById("error")
-        const sikeresUzenet = document.getElementById("sikeres")
-        const regisztraciosResz = document.getElementById("regisztraciosResz")
-        let regisztralva = false
-        sikeresUzenet.style.display = "none"
+      const regisztracioGomb = document.getElementById("regisztracioGomb");
+      const emailMezo = document.getElementById("email");
+      const jelszoMezo = document.getElementById("jelszo");
+      const jelszoUjraMezo = document.getElementById("jelszoUjra");
+      const errorUzenet = document.getElementById("error");
+      const sikeresUzenet = document.getElementById("sikeres");
+      const regisztraciosResz = document.getElementById("regisztraciosResz"); 
+      sikeresUzenet.style.display = "none";
 
+      regisztracioGomb.addEventListener("click", () => {
+        let email = emailMezo.value;
+        let jelszo = jelszoMezo.value;
+        let jelszoUjra = jelszoUjraMezo.value;
+        let hiba = "";
+        errorUzenet.innerHTML = "";
 
-        regisztracioGomb.addEventListener("click", () =>{
-            let email = emailMezo.value
-            let jelszo = jelszoMezo.value
-            let jelszoUjra = jelszoUjraMezo.value
-            let hibasEmail = false
-            let hibasJelszo = false
-    
+        if (email.includes("@") && email.includes(".")) {
+          let tmp = email.split(".");
+          utolsoPontUtaniHossz = tmp[tmp.length - 1].length;
+          if (utolsoPontUtaniHossz != 2 && utolsoPontUtaniHossz != 3) {
+            hiba += "Nem megfelelő az email cím országkódja!<br>";
+          }
+        } else {
+          hiba += "Nem megfelelő email cím!<br>";
+        }
 
-            if (email.includes("@") && email.includes(".")){
-                let tmp = email.split('.')
-                utolsoPontUtaniHossz = tmp[tmp.length-1].length
-                if (utolsoPontUtaniHossz != 2 && utolsoPontUtaniHossz != 3){
-                    hibasEmail = true
-                }
-            }
-            else{
-                hibasEmail = true
-            }
+        if (jelszo != jelszoUjra) {
+          hiba += "Nem egyeznek meg a jelszavak!";
+        }
+        errorUzenet.innerHTML += hiba;
 
-            if (jelszo != jelszoUjra){
-                hibasJelszo = true
-            }
-
-
-            errorUzenet.innerHTML = ""
-            if (hibasEmail){
-                errorUzenet.innerHTML += "Nem megfelelő email cím!<br>"
-            }
-            if (hibasJelszo){
-                errorUzenet.innerHTML += "Nem egyeznek meg a jelszavak!"
-            }
-            else if (!hibasEmail && !hibasJelszo){
-                
-                sikeresUzenet.style.display = "block"
-                regisztraciosResz.style.display = "none"
-            }
-        })
-
-
+        if ((hiba.length == 0)) {
+          sikeresUzenet.style.display = "block";
+          regisztraciosResz.style.display = "none";
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
