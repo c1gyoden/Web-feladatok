@@ -14,16 +14,17 @@
   <div id="idopontfoglalo">
     <h3>Felhasználói adatok</h3>
     <label for="nev">Név:</label>
-    <input type="text" id="nev"/>
+    <input type="text" id="nev" placeholder="Vezetéknév Keresztnév"/>
+    <br>
 
     <label for="email">E-mail cím: </label>
-    <input type="email" id="email"/>
+    <input type="email" id="email" placeholder="pelda@vasvari.org"/>
+    <br>
 
     <label for="telefon">Telefonszám: </label>
-    <input type="tel" id="telefon"/>
+    <input type="tel" id="telefon" placeholder="+36301234567"/>
 
     <h3>Szolgáltatás</h3>
-    <label for="szolgaltatas">Szolgáltatás: </label>
     <select id="szolgaltatas">
       <option value="altalanos">Általános orvosi vizsgálat</option>
       <option value="specializalt">Specializált orvosi vizsgálat</option>
@@ -41,9 +42,27 @@
     <h3>Időpont</h3>
     <label for="datum">Dátum: </label>
     <input type="date" id="datum"/>
+    <br>
     <label for="ido">Idő: </label>
     <input type="time" id="ido"/>
+
+    <br> <br>
+    <button id="hozzaad">Hozzáadás</button>
   </div>
+
+  <table id="megjelenites">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>név</th>
+        <th>email</th>
+        <th>telefon</th>
+        <th>szolgáltatás</th>
+        <th>dátum</th>
+        <th>idő</th>
+      </tr>
+    </thead>
+  </table>
 
   <script src="rendelo.js"></script>
 </body>
