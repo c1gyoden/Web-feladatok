@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="rendelo.css">
+  <title>Rendelési időpont foglaló</title>
+</head>
+
+<body>
+  <h1>Rendelési időpont foglaló</h1>
+
+  <div id="idopontfoglalo">
+    <h3>Felhasználói adatok</h3>
+    <label for="nev">Név:</label>
+    <input type="text" id="nev"/>
+
+    <label for="email">E-mail cím: </label>
+    <input type="email" id="email"/>
+
+    <label for="telefon">Telefonszám: </label>
+    <input type="tel" id="telefon"/>
+
+    <h3>Szolgáltatás</h3>
+    <label for="szolgaltatas">Szolgáltatás: </label>
+    <select id="szolgaltatas">
+      <option value="altalanos">Általános orvosi vizsgálat</option>
+      <option value="specializalt">Specializált orvosi vizsgálat</option>
+      <option value="nogyogyaszat">Nőgyógyászat</option>
+      <option value="pediatria">Pediátria</option>
+      <option value="fogaszat">Fogászat</option>
+      <option value="borgyogyaszat">Bőrgyógyászat</option>
+      <option value="orthopedia_reumatologia">Orthopédia és reumatológia</option>
+      <option value="szemeszet">Szemészet</option>
+      <option value="urologia">Urológia</option>
+      <option value="sziv_errendszeri">Szív- és érrendszeri</option>
+      <option value="tudogyogyaszat">Tüdőgyógyászat</option>
+    </select>
+
+    <h3>Időpont</h3>
+    <label for="datum">Dátum: </label>
+    <input type="date" id="datum"/>
+    <label for="ido">Idő: </label>
+    <input type="time" id="ido"/>
+  </div>
+
+  <script src="rendelo.js"></script>
+</body>
+
+</html>
