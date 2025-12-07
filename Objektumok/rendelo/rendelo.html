@@ -9,9 +9,9 @@
 </head>
 
 <body>
-  <h1>Rendelési időpont foglaló</h1>
-
+  
   <div id="idopontfoglalo">
+    <h1>Rendelési időpont foglaló</h1>
     <h3>Felhasználói adatok</h3>
     <label for="nev">Név:</label>
     <input type="text" id="nev" placeholder="Vezetéknév Keresztnév"/>
@@ -50,7 +50,7 @@
     <button id="hozzaad">Hozzáadás</button>
   </div>
 
-  <table id="megjelenites">
+  <table>
     <thead>
       <tr>
         <th>id</th>
@@ -60,8 +60,12 @@
         <th>szolgáltatás</th>
         <th>dátum</th>
         <th>idő</th>
+        <th colspan="2"></th>
       </tr>
     </thead>
+    <tbody id="tablazatbody">
+
+    </tbody>
   </table>
 
   <script src="rendelo.js"></script>
