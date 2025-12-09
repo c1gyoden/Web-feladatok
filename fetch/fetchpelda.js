@@ -1,4 +1,7 @@
-function fetching(id) {
+const adatokMegjelenitese = document.getElementById("adatokMegjelenitese") 
+const autok = []
+
+function fetching() {
   fetch("https://surveys-5jvt.onrender.com/api/cars/")
     .then((response) => {
       if (!response.ok) {
@@ -12,8 +15,8 @@ function fetching(id) {
     })
 
     .then((data) => {
-      console.log(data[id - 1]);
-      megjelenites(data[id - 1]);
+      console.log(data);
+      autok.push(data)
     })
 
     .catch((error) => {
@@ -24,19 +27,18 @@ function fetching(id) {
     });
 }
 
-function megjelenites(adatok) {
+function megjeleniteso(autok) {
+  for (let i = 0; i < autok.length; i++){
+    const sor = adatokMegjelenitese.insertRow()
+    const id = sor.insertRow()
+    const model = sor.insertRow()
+    const brand = sor.insertRow()
+    const year = sor.insertRow()
+  }
   document.getElementById("id").textContent = adatok.id;
   document.getElementById("model").textContent = adatok.model;
   document.getElementById("brand").textContent = adatok.brand;
   document.getElementById("year").textContent = adatok.year;
-}
-
-function reset() {
-  document.getElementById("id").textContent = "";
-  document.getElementById("model").textContent = "";
-  document.getElementById("brand").textContent = "";
-  document.getElementById("year").textContent = "";
-  document.getElementById("response").textContent = "";
 }
 
 function kereses() {
