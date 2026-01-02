@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fetch.css">
     <title>Fetch</title>
 </head>
 <body>
-    <div>
-        <label for="autoID">Autó azonosítója: </label>
-        <input type="number" id="autoID">
-        <button onclick="kereses()">Keresés</button>
-    </div>
-    <div>
-        <p id="id"></p>
-        <p id="model"></p>
-        <p id="brand"></p>
-        <p id="year"></p>
-    </div>
+    <h1>Fetchelés</h1>
+
+    <select id="APIvalasztas">
+    <option value="cars">Cars</option>
+    <option value="books">Books</option>
+    <option value="phones">Phones</option>
+    <option value="users">Users</option>
+    </select>
+    <button onclick="kivalaszt()">Kiválaszt</button>
+
+    <table>
+        <thead id="tableFejlec">
+
+        </thead>
+        <tbody id="tableAdatok">
+
+        </tbody>
+    </table>
     <p id="response"></p>
 
-    <script src="fetchpelda.js"></script>
+    <script src="fetch.js"></script>
 </body>
 </html>

@@ -1,0 +1,32 @@
+body{
+    text-align: center;
+    width: 100vw;
+    height: 97vh;
+    margin: 0;
+    background-image: linear-gradient(to bottom, rgb(255, 217, 0) 1%, orange 80%);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+select{
+    margin-bottom: 1vh;
+}
+table{
+    margin: 0 auto;
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 70vw;
+    background-color: orange;
+    color: black
+}
+thead{
+    font-weight: 700;
+    border-bottom: 2px solid black;
+    background-color: darkorange;
+}
+td{
+    border: 1px solid black;
+}
+
+tr:hover{
+    background-color: darkorange;
+}
