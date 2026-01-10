@@ -6,6 +6,7 @@ const datum = document.getElementById("datum")
 const ido = document.getElementById("ido")
 const hozzaad = document.getElementById("hozzaad")
 const tablazatbody = document.getElementById("tablazatbody")
+const hibauzenet = document.getElementById("hibauzenet")
 
 let foglalasok = []
 if (localStorage.getItem("foglalasok") != null){
@@ -14,28 +15,56 @@ if (localStorage.getItem("foglalasok") != null){
 Frissites()
 
 hozzaad.addEventListener("click", () => {
-    const foglaltIdk = foglalasok.map(f => f.id)
-    szabadId = -1
-    szamlalo = 0
-    do{
-        if (!foglaltIdk.includes(szamlalo)){
-            szabadId = szamlalo
-        }
-        szamlalo++
-    } while (szabadId == -1)
-
-        const foglalas = {
-        id: szabadId,
-        nev: nev.value,
-        email: email.value,
-        telefon: telefon.value,
-        szolgaltatas: szolgaltatas.options[szolgaltatas.selectedIndex].innerHTML,
-        datum: datum.value,
-        ido: ido.value
+    hibauzenet.innerHTML = ""
+    if (nev.value == ""){
+        hibauzenet.innerHTML += "Adjon meg egy nevet!<br>"
+    }
+    if (email.value == ""){
+        hibauzenet.innerHTML += "Adjon meg egy email címet!<br>"
+    }
+    else if (!/^[a-z0-9?_%+-]+(\.[a-z0-9?_%+-]+)*@[a-z0-9]+(\.?[a-z0-9])*\.[a-z0-9]{2,3}$/i.test(email.value)){
+        hibauzenet.innerHTML += "Érvénytelen email cím!<br>"
+    }
+    if (telefon.value == ""){
+        hibauzenet.innerHTML += "Adjon meg egy telefonszámot!<br>"
+    }
+    else if (!/^\+?( ?[0-9] ?){9,15}$/.test(telefon.value)){
+        hibauzenet.innerHTML += "Érvénytelen telefonszám!<br>"
+    }
+    if (datum.value == ""){
+        hibauzenet.innerHTML += "Adjon meg egy dátumot!<br>"
+    }
+    if (ido.value == ""){
+        hibauzenet.innerHTML += "Adjon meg egy időt!<br>"
+    }
+    else if(new Date(`${datum.value}T${ido.value}`) < new Date()){
+        hibauzenet.innerHTML += "Az időpont már elmúlt!"
     }
 
-    foglalasok.push(foglalas)
-    Frissites()
+    if (hibauzenet.innerHTML == ""){
+        const foglaltIdk = foglalasok.map(f => f.id)
+        szabadId = -1
+        szamlalo = 0
+        do{
+            if (!foglaltIdk.includes(szamlalo)){
+                szabadId = szamlalo
+            }
+            szamlalo++
+        } while (szabadId == -1)
+
+        const foglalas = {
+            id: szabadId,
+            nev: nev.value,
+            email: email.value,
+            telefon: telefon.value,
+            szolgaltatas: szolgaltatas.options[szolgaltatas.selectedIndex].innerHTML,
+            datum: datum.value,
+            ido: ido.value
+        }
+
+        foglalasok.push(foglalas)
+        Frissites()
+    }
 })
 
 function Megjelenites(){

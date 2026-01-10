@@ -2,11 +2,15 @@ body{
     text-align: center;
     background-image: url("background.jpg");
     background-size: cover;
+    background-attachment: fixed;
 }
 
 h1{
     color: darkblue;
     text-shadow: 1px 1px cadetblue;
+}
+h3{
+    margin-bottom: 1vh;
 }
 
 #idopontfoglalo{
@@ -17,6 +21,13 @@ h1{
     padding-bottom: 1vh;
     box-shadow: 3px 3px 2px rgb(31, 104, 187);
     color: black;
+}
+#hibauzenet{
+    color: rgb(178,34,34);
+    margin-top: 1vh;
+}
+#hozzaad{
+    margin-top: 1vh;
 }
 
 table{
@@ -30,7 +41,6 @@ table{
 td, th{
     border: 1px solid black;
     height: 2em;
-    
 }
 th:first-of-type{
     border-left: 3px solid black;
