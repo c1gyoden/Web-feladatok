@@ -18,11 +18,15 @@ fetch("https://surveys-5jvt.onrender.com/api/cars/")
   });
 
 function adatHozzaadasa(elem) {
-  let kartya = '<div class="card">';
-  kartya += `<p>id: ${elem.id}<p>`;
-  kartya += `<p>model: ${elem.model}<p>`;
-  kartya += `<p>brand: ${elem.brand}<p>`;
-  kartya += `<p>year: ${elem.year}<p>`;
+  let kartya = '<div class="card col-sm-12 col-md-6 col-lg-3 h-auto">';
+  kartya += `<img class="card-img-top mt-2" src="images/${elem.brand}.jpg">`;
+  kartya += `<div class="text-center mt-1 h-auto">`
+  kartya += `<h5 class="card-title"><b>${elem.brand} ${elem.model}</b></h5>`;
+  kartya += `<p><i>(${elem.year})</i></p>`;
+  kartya += `</div>`;
+  kartya += `<p class="text-end ">${elem.id}</p>`;
+  
+  kartya += `</div>`;
 
   adatokMegjelenitese.innerHTML += kartya;
 }
