@@ -4,7 +4,7 @@ h1{
     text-shadow: 1px 1px rgb(153, 153, 140);
 }
 body{
-    background-image: url("background.jpg");
+    background-image: url("images/background.jpg");
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(5px);
